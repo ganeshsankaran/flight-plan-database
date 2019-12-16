@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <title>Flight Plan Database</title>
+  <div th:replace="fragments/bootstrap_head.html"></div>
+</head>
+
+<body>
+  <div class="container">
+    <div th:replace="fragments/bootstrap_nav_header.html"></div>
+    <br />
+    <h3>Meteorological Aerodrome Report (METAR)</h3>
+    <pre th:text="${weather.METAR}"></pre>
+    <h3>Terminal Aerodrome Forecast (TAF)</h3>
+    <pre th:text="${weather.TAF}"></pre>
+    <div th:replace="fragments/bootstrap_footer.html"></div>
+  </div>
+  <div th:replace="fragments/bootstrap_scripts.html"></div>
+</body>
+
+</html>
