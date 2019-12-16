@@ -11,8 +11,8 @@
     <div th:replace="fragments/bootstrap_nav_header.html"></div>
     <br />
     <h3>Results</h3>
-    <hr />
     <div th:each="plan: ${plans}">
+      <hr />
       <h5>Distance</h5>
       <p th:text="${plan.distance} + ' nautical miles'"></p>
       <h5>Maximum Altitude</h5>
@@ -37,8 +37,8 @@
           </tr>
         </tbody>
       </table>
-      <hr />
     </div>
+    <div th:replace="fragments/bootstrap_footer.html"></div>
   </div>
   <div th:replace="fragments/bootstrap_scripts.html"></div>
 </body>
