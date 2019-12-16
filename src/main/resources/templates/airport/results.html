@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <title>Flight Plan Database</title>
+  <div th:replace="fragments/bootstrap_head.html"></div>
+</head>
+
+<body>
+  <div class="container">
+    <div th:replace="fragments/bootstrap_nav_header.html"></div>
+    <br />
+    <h3 th:text="${airport.name} + ' Airport'"></h3>
+    <hr />
+    <h5>International Civil Aviation Organization (ICAO) Code</h5>
+    <p th:text="${airport.ICAO}"></p>
+    <h5>International Air Transport Association (IATA) Code</h5>
+    <p th:text="${airport.IATA}"></p>
+    <h5>Region</h5>
+    <p th:text="${airport.regionName}"></p>
+    <h5>Timezone</h5>
+    <p th:text="${airport.timezone.name} + ' (UTC' +  ${airport.timezone.offset} / 3600 + ')'"></p>
+    <h5>Elevation</h5>
+    <p th:text="${airport.elevation} + ' feet'"></p>
+    <h5>Coordinates</h5>
+    <p th:text="${airport.lat} + '° N ' + ${airport.lon} + '° W'"></p>
+    <h5>Magnetic Variation</h5>
+    <p th:text="${airport.magneticVariation} + '°'"></p>
+    <hr />
+    <h5>Runways</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Number</th>
+          <th>Length</th>
+          <th>Bearing</th>
+          <th>Surface</th>
+        </tr>
+        </thead>
+        <tbody th:each="runway: ${airport.runways}">
+          <tr>
+            <td th:text="${runway.ident}">
+            <td th:text="${runway.length} + ' feet'">
+            <td th:text="${runway.bearing} + '°'">
+            <td th:text="${runway.surface}">
+          </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h5>Frequencies</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Frequency</th>
+        </tr>
+      </thead>
+      <tbody th:each="frequency: ${airport.frequencies}">
+        <tr>
+          <td th:text="${frequency.name}">
+          <td th:text="${frequency.type}">
+          <td th:text="${frequency.frequency} / 1000000 + ' MHz'">
+        </tr>
+      </tbody>
+    </table>
+    <hr />
+    <h5>Meteorological Aerodrome Report (METAR)</h5>
+    <pre th:text="${airport.weather.METAR}"></pre>
+    <h5>Terminal Aerodrome Forecast (TAF)</h5>
+    <pre th:text="${airport.weather.TAF}"></pre>
+    <div th:replace="fragments/bootstrap_footer.html"></div>
+  </div>
+  <div th:replace="fragments/bootstrap_scripts.html"></div>
+</body>
+
+</html>
