@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <title>Flight Plan Database</title>
+  <div th:replace="fragments/bootstrap_head.html"></div>
+</head>
+
+<body>
+  <div class="container">
+    <div th:replace="fragments/bootstrap_nav_header.html"></div>
+    <br />
+    <h3>Results</h3>
+    <hr />
+    <div th:each="plan: ${plans}">
+      <h5>Distance</h5>
+      <p th:text="${plan.distance} + ' nautical miles'"></p>
+      <h5>Maximum Altitude</h5>
+      <p th:text="${plan.maxAltitude} + ' feet'"></p>
+      <h5>Waypoints</h5>
+      <p th:text="${plan.waypoints}"></p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Location</th>
+            <th>Altitude</th>
+          </tr>
+        </thead>
+        <tbody th:each="node: ${plan.route.nodes}">
+          <tr>
+            <td th:text="${node.ident}">
+            <td th:text="${node.type}">
+            <td th:text="${node.lat} + '° N ' + ${node.lon} + '° W'">
+            <td th:text="${node.alt} + ' feet'">
+          </tr>
+        </tbody>
+      </table>
+      <hr />
+    </div>
+  </div>
+  <div th:replace="fragments/bootstrap_scripts.html"></div>
+</body>
+
+</html>
