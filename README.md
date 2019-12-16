@@ -1,7 +1,7 @@
 # Flight Plan Database [![Build Status](https://travis-ci.org/ganeshsankaran/flight-plan-database.svg?branch=master)](https://travis-ci.org/ganeshsankaran/flight-plan-database)
 by Ganesh Sankaran
 <hr />
-<p>This <a href="https://flight-plan-database.herokuapp.com">Spring Boot web application</a> provides information relevant the following aspects of flight planning:</p>
+<p>This <a href="https://flight-plan-database.herokuapp.com">Spring Boot web application</a> provides information relevant to the following aspects of flight planning:</p>
 <ul>
   <li>Flight Plans</li>
   <li>Airports</li>
